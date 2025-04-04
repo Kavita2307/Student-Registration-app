@@ -33,6 +33,11 @@ table {
 }
 
 th, td {
-  padding: 8px 12px;
-  text-align: left;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
 }

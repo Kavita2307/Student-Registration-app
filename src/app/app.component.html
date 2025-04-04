@@ -8,11 +8,14 @@
     <label for="age">Age:</label>
     <input type="number" id="age" [(ngModel)]="student.age" name="age" required />
 
-    <label for="grade">Email:</label>
+    <label for="email">Email:</label>
     <input type="text" id="email" [(ngModel)]="student.email" name="email" required />
 
-    <label for="grade">Course:</label>
+    <label for="course">Course:</label>
     <input type="text" id="course" [(ngModel)]="student.course" name="course" required />
+
+    <label for="grade">Grade:</label>
+    <input type="number" id="grade" [(ngModel)]="student.grade" name="grade" required />
 
     <button type="submit">{{buttonname}}</button>
   </form></div>
@@ -24,20 +27,21 @@
       <th>Age</th>
       <th>Email</th>
       <th>Course</th>
+      <th>Grade</th>
+      <th>Actions</th>
     </tr>
-    <tr *ngFor="let s of students">
+    <tr *ngFor="let s of students; let i = index">
       <td>{{ s.name }}</td>
       <td>{{ s.age }}</td>
       <td>{{ s.email }}</td>
       <td>{{s.course}}</td>
+      <td [ngStyle]="{'background-color':s.p_color, 'color':'black', 'font':'bold'}">{{s.grade}}</td>
+      <td>
+        <button (click)="deleteStudent(i)">Delete</button>
+      </td>
     </tr>
   </table>
 </div>
 <ng-template #noRecords>
   <p>No records available.</p>
 </ng-template>
-
-
-
-
-
